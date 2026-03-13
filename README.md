@@ -68,7 +68,7 @@ DJI-Remote significantly extends the concept with:
 |------|---------|
 | [`manual.md`](docs/manual.md) | **User Manual** – How to operate the remote |
 | [`implementation.md`](docs/implementation.md) | **Developer Documentation** – Firmware architecture & internals |
-| [`THIRD_PARTY_NOTICES.md`](THIRD_PARY_NOTICES.md) | Licenses for DJI, ESP-IDF, external code |
+| [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | Licenses for DJI, ESP-IDF, external code |
 | [`LICENSE`](LICENSE) | MIT license for this project |
 
 
@@ -170,12 +170,7 @@ idf.py fullclean
 idf.py set-target esp32
 ```
 
-### Use correct default config:
-```bash
-cp sdkconfig.defaults.m5stack_basic_v27 sdkconfig.defaults
-```
-
-(Optional):
+`sdkconfig.defaults` in the project root is already set for M5Stack Basic V2.7 (16MB flash, partition table). Optionally adjust settings:
 ```bash
 idf.py menuconfig
 ```
@@ -199,6 +194,34 @@ Windows:
 ```cmd
 idf.py -p COM3 flash monitor
 ```
+
+
+# 🛠 Building the Firmware (PlatformIO)
+
+If you use [PlatformIO](https://platformio.org/), you can build and flash without exporting the ESP-IDF environment.
+
+**Build:**
+```bash
+pio run
+```
+
+**Flash:** (set port if needed: `-e m5stack_basic_v27 --upload-port /dev/cu.usbserial-XXXX`)
+```bash
+pio run -t upload
+```
+
+**Serial monitor:**
+```bash
+pio device monitor
+```
+Or combine upload and monitor: `pio run -t upload && pio device monitor`
+
+**Optional – change sdkconfig (e.g. log level, features):**
+```bash
+pio run -t menuconfig
+```
+
+The project uses `framework = espidf` and `board = m5stack-core-esp32-16M` (16MB flash). Source directory is `main/`; existing `CMakeLists.txt` and `main/idf_component.yml` are used as-is.
 
 
 # ⚡ Flashing a Prebuilt Firmware (no ESP‑IDF)

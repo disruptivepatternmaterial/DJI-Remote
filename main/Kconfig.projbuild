@@ -1,4 +1,4 @@
-menu "Example Configuration"
+menu "DJI Remote Configuration"
 
     config EXAMPLE_DUMP_ADV_DATA_AND_SCAN_RESP
         bool "Dump whole adv data and scan response data in example"

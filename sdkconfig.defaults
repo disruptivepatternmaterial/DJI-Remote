@@ -29,3 +29,6 @@ CONFIG_UART_ISR_IN_IRAM=y
 # Power Management
 CONFIG_PM_ENABLE=y
 
+# Partition Table - Use large app partition to accommodate boot logo
+# CONFIG_PARTITION_TABLE_SINGLE_APP is not set
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y

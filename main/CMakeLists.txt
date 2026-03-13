@@ -18,7 +18,7 @@ idf_component_register(SRCS "app_main.c"
                             "boot_logo.c"
                             "../gps/gps_reader.c"
                             "../log_config.c"
-                    PRIV_REQUIRES bt nvs_flash esp_driver_gpio led_strip esp_driver_spi esp_lcd driver
+                    PRIV_REQUIRES bt nvs_flash led_strip esp_lcd driver
                     INCLUDE_DIRS "." "../utils/crc" "../protocol" "../ble" "../data" "../logic" "../gps" "../")
 
 # Define M5STACK_BASIC_V27 for conditional compilation

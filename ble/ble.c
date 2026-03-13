@@ -48,6 +48,7 @@
 #include "esp_gatt_common_api.h"
 #include "../main/ui.h"  // For camera_state_t and NUM_CAMERAS
 #include "freertos/FreeRTOS.h"
+#include "freertos/timers.h"
 #include "freertos/task.h"
 #include "esp_timer.h"
 
